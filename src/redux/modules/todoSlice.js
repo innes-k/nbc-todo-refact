@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import db from "../../../db.json";
 
-// const dummyData = db.todos;
-// const initialState = [...dummyData];
 const initialState = [];
 
 const todoSlice = createSlice({

@@ -3,7 +3,7 @@ import * as St from "./styles/working.style";
 import TodoItem from "./TodoItem";
 import { defaultTodos, todoReducer } from "../redux/modules/todoSlice";
 import { getTodos } from "../api/todos-api";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const TodoLists = () => {
   const todos = useSelector((state) => state.todoReducer);
@@ -16,8 +16,6 @@ const TodoLists = () => {
     };
     fetchData();
   }, [dispatch]);
-
-  console.log(todos);
 
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);

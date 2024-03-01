@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as St from "./styles/inputBox.styles";
 import { useDispatch } from "react-redux";
 import { addTodos } from "../redux/modules/todoSlice";
+import { addTodo } from "../api/todos-api";
 
 // input Box 컴포넌트 (상단의 제목, 내용, 추가하기)
 function InputBox() {
@@ -30,7 +31,7 @@ function InputBox() {
     setBody("");
   };
 
-  const addHandler = () => {
+  const addHandler = async () => {
     if (!title) {
       alert("제목을 입력해주세요.");
       return;
@@ -48,10 +49,33 @@ function InputBox() {
       isDone: false,
       deadline: deadline,
     };
-    dispatch(addTodos(newTodo));
+    await addTodo(newTodo);
 
     makeInputEmpty();
   };
+
+  // const addHandler = () => {
+  //   if (!title) {
+  //     alert("제목을 입력해주세요.");
+  //     return;
+  //   } else if (!body) {
+  //     alert("내용을 입력해주세요.");
+  //     return;
+  //   } else if (!deadline) {
+  //     alert("마감일을 지정해주세요.");
+  //     return;
+  //   }
+  //   const newTodo = {
+  //     id: Date.now(),
+  //     title: title,
+  //     body: body,
+  //     isDone: false,
+  //     deadline: deadline,
+  //   };
+  //   dispatch(addTodos(newTodo));
+
+  //   makeInputEmpty();
+  // };
 
   // enter키로 todo 추가하기
   const onCheckEnter = (e) => {

@@ -11,3 +11,7 @@ export const getTodos = async () => {
   const todos = await todoClient.get("/");
   return todos.data;
 };
+
+export const addTodo = async (todo) => {
+  await todoClient.post("/", todo);
+};
