@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import db from "../../../db.json";
+// import db from "../../../db.json";
 
-const dummyData = db.todos;
-const initialState = [...dummyData];
+// const dummyData = db.todos;
+// const initialState = [...dummyData];
+const initialState = [];
 
 const todoSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
+    defaultTodos: (_state, actions) => {
+      return actions.payload;
+    },
     addTodos: (state, actions) => {
       state.push(actions.payload);
     },
@@ -25,4 +29,5 @@ const todoSlice = createSlice({
 });
 
 export const todoReducer = todoSlice.reducer;
-export const { addTodos, toggleTodo, deleteTodo } = todoSlice.actions;
+export const { defaultTodos, addTodos, toggleTodo, deleteTodo } =
+  todoSlice.actions;
