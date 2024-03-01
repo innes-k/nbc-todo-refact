@@ -19,7 +19,7 @@ export const TodoListFlex = styled.div`
   flex-wrap: wrap;
   min-height: 150px;
   border-top: 2px solid rgb(242, 242, 242);
-  cursor: pointer;
+  margin-bottom: 2rem;
 `;
 
 export const TodoList = styled.article`
