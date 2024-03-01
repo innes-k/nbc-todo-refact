@@ -2,9 +2,6 @@ import { useSelector } from "react-redux";
 import * as St from "./styles/working.style";
 import TodoItem from "./TodoItem";
 import { todoReducer } from "../redux/modules/todoSlice";
-// import Working from "./Working.jsx";
-
-// const TodoLists = ({ todos, setTodos }) => {
 
 const TodoLists = ({ setTodos }) => {
   const todos = useSelector((state) => state.todoReducer);
@@ -23,7 +20,7 @@ const TodoLists = ({ setTodos }) => {
           </St.TitleSelect>
         </St.Title>
         <St.TodoListFlex>
-          <TodoItem todos={workingTodos} setTodos={setTodos} />
+          <TodoItem todos={workingTodos} />
         </St.TodoListFlex>
         <St.Title>
           <St.TitleSpan>👍🏻 Done </St.TitleSpan>
@@ -33,9 +30,8 @@ const TodoLists = ({ setTodos }) => {
           </St.TitleSelect>
         </St.Title>
         <St.TodoListFlex>
-          <TodoItem todos={doneTodos} setTodos={setTodos} />
+          <TodoItem todos={doneTodos} />
         </St.TodoListFlex>
-        {/* <Working box={box} setBox={setBox} /> */}
       </div>
     </>
   );

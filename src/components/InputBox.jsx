@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addTodos } from "../redux/modules/todoSlice";
 
 // input Box 컴포넌트 (상단의 제목, 내용, 추가하기)
-function InputBox({ setTodos }) {
+function InputBox() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [deadline, setDeadline] = useState("");
@@ -25,13 +25,22 @@ function InputBox({ setTodos }) {
     setDeadline(e.target.value);
   };
 
-  // 제목, 내용 input을 빈칸으로 초기화하는 함수
   const makeInputEmpty = () => {
     setTitle("");
     setBody("");
   };
 
   const addHandler = () => {
+    if (!title) {
+      alert("제목을 입력해주세요.");
+      return;
+    } else if (!body) {
+      alert("내용을 입력해주세요.");
+      return;
+    } else if (!deadline) {
+      alert("마감일을 지정해주세요.");
+      return;
+    }
     const newTodo = {
       id: Date.now(),
       title: title,
@@ -43,34 +52,6 @@ function InputBox({ setTodos }) {
 
     makeInputEmpty();
   };
-
-  // '추가하기'버튼 onclick
-  // const addHandler = function () {
-  //   // 제목, 내용, 마감일 유효성 검사 alert
-  //   if (title === "") {
-  //     alert("제목을 입력해주세요.");
-  //     makeInputEmpty();
-  //   } else if (body === "") {
-  //     alert("내용을 입력해주세요.");
-  //     makeInputEmpty();
-  //   } else if (deadline === "") {
-  //     alert("마감일을 지정해주세요.");
-  //   } else {
-  //     setTodos((todo) => [
-  //       ...todo,
-  //       {
-  //         id: Date.now(),
-  //         title: title,
-  //         body: body,
-  //         isDone: false,
-  //         deadline: deadline,
-  //       },
-  //     ]);
-
-  //     // '추가' 클릭 후 input 빈칸으로 초기화
-  //     makeInputEmpty();
-  //   }
-  // };
 
   // enter키로 todo 추가하기
   const onCheckEnter = (e) => {

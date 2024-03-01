@@ -6,34 +6,16 @@ import {
   toggleTodo,
 } from "../redux/modules/todoSlice";
 
-const TodoItem = ({ todos, setTodos }) => {
+const TodoItem = ({ todos }) => {
   const dispatch = useDispatch();
   const reLocateHandler = (id) => {
     dispatch(toggleTodo(id));
   };
 
-  // const reLocateHandler = (id) => {
-  //   setTodos((prevTodos) =>
-  //     prevTodos.map((todo) => {
-  //       if (todo.id === id) {
-  //         return { ...todo, isDone: !todo.isDone };
-  //       }
-  //       return todo;
-  //     })
-  //   );
-  // };
-
-  // 삭제버튼 onclick
   const removeHandler = (id) => {
     dispatch(deleteTodo(id));
   };
 
-  // const removeHandler = function (id) {
-  //   const removeBox = todos.filter((todo) => {
-  //     return todo.id !== id;
-  //   });
-  //   setTodos(removeBox);
-  // };
   return (
     <>
       {todos.map((todo) => {
