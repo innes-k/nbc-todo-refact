@@ -1,11 +1,10 @@
-import styled from "styled-components";
 import * as St from "./styles/working.style";
 import TodoItem from "./TodoItem";
 
 const TodoLists = ({ box, setBox }) => {
   return (
     <>
-      <TodoListsWrapper>
+      <div>
         <St.Title>
           <St.TitleSpan>📝 Working </St.TitleSpan>
           <St.TitleSelect>
@@ -14,7 +13,13 @@ const TodoLists = ({ box, setBox }) => {
           </St.TitleSelect>
         </St.Title>
         <St.TodoListFlex>
-          <TodoItem box={box} setBox={setBox} />
+          {box.map((todo) => {
+            return (
+              todo.isDone === false && (
+                <TodoItem key={todo.id} box={box} setBox={setBox} />
+              )
+            );
+          })}
         </St.TodoListFlex>
         <St.Title>
           <St.TitleSpan>👍🏻 Done </St.TitleSpan>
@@ -24,13 +29,17 @@ const TodoLists = ({ box, setBox }) => {
           </St.TitleSelect>
         </St.Title>
         <St.TodoListFlex>
-          <TodoItem box={box} setBox={setBox} />
+          {box.map((todo) => {
+            return (
+              todo.isDone === true && (
+                <TodoItem key={todo.id} box={box} setBox={setBox} />
+              )
+            );
+          })}
         </St.TodoListFlex>
-      </TodoListsWrapper>
+      </div>
     </>
   );
 };
 
 export default TodoLists;
-
-const TodoListsWrapper = styled.div``;
