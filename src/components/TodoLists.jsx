@@ -1,8 +1,14 @@
+import { useSelector } from "react-redux";
 import * as St from "./styles/working.style";
 import TodoItem from "./TodoItem";
+import { todoReducer } from "../redux/modules/todoSlice";
 // import Working from "./Working.jsx";
 
-const TodoLists = ({ todos, setTodos }) => {
+// const TodoLists = ({ todos, setTodos }) => {
+
+const TodoLists = ({ setTodos }) => {
+  const todos = useSelector((state) => state.todoReducer);
+
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
 

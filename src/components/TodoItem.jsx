@@ -1,16 +1,23 @@
+import { useDispatch } from "react-redux";
 import * as St from "./styles/working.style";
+import { todoReducer, toggleTodo } from "../redux/modules/todoSlice";
 
 const TodoItem = ({ todos, setTodos }) => {
+  const dispatch = useDispatch();
   const reLocateHandler = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, isDone: !todo.isDone };
-        }
-        return todo;
-      })
-    );
+    dispatch(toggleTodo(id));
   };
+
+  // const reLocateHandler = (id) => {
+  //   setTodos((prevTodos) =>
+  //     prevTodos.map((todo) => {
+  //       if (todo.id === id) {
+  //         return { ...todo, isDone: !todo.isDone };
+  //       }
+  //       return todo;
+  //     })
+  //   );
+  // };
 
   // 삭제버튼 onclick
   const removeHandler = function (id) {

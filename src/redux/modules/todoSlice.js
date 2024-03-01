@@ -11,8 +11,14 @@ const todoSlice = createSlice({
     addTodos: (state, actions) => {
       state.push(actions.payload);
     },
+    toggleTodo: (state, actions) => {
+      const id = actions.payload;
+      return state.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      );
+    },
   },
 });
 
 export const todoReducer = todoSlice.reducer;
-export const { addTodos } = todoSlice.actions;
+export const { addTodos, toggleTodo } = todoSlice.actions;
