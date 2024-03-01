@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as St from "./styles/inputBox.styles";
 
 // input Box 컴포넌트 (상단의 제목, 내용, 추가하기)
-function InputBox({ setBox }) {
+function InputBox({ setTodos }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [deadline, setDeadline] = useState("");
@@ -40,8 +40,8 @@ function InputBox({ setBox }) {
     } else if (deadline === "") {
       alert("마감일을 지정해주세요.");
     } else {
-      setBox((box) => [
-        ...box,
+      setTodos((todo) => [
+        ...todo,
         {
           id: Date.now(),
           title: title,

@@ -4,7 +4,7 @@ import TodoLists from "../components/TodoLists";
 import { useState } from "react";
 
 const Home = () => {
-  const [box, setBox] = useState([
+  const [todos, setTodos] = useState([
     {
       id: Date.now(),
       title: "Todo List 정복!",
@@ -16,8 +16,8 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <InputBox setBox={setBox} />
-      <TodoLists box={box} setBox={setBox} />
+      <InputBox setTodos={setTodos} />
+      <TodoLists todos={todos} setTodos={setTodos} />
     </div>
   );
 };

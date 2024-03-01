@@ -1,7 +1,11 @@
 import * as St from "./styles/working.style";
 import TodoItem from "./TodoItem";
+// import Working from "./Working.jsx";
 
-const TodoLists = ({ box, setBox }) => {
+const TodoLists = ({ todos, setTodos }) => {
+  const workingTodos = todos.filter((todo) => !todo.isDone);
+  const doneTodos = todos.filter((todo) => todo.isDone);
+
   return (
     <>
       <div>
@@ -13,13 +17,7 @@ const TodoLists = ({ box, setBox }) => {
           </St.TitleSelect>
         </St.Title>
         <St.TodoListFlex>
-          {box.map((todo) => {
-            return (
-              todo.isDone === false && (
-                <TodoItem key={todo.id} box={box} setBox={setBox} />
-              )
-            );
-          })}
+          <TodoItem todos={workingTodos} setTodos={setTodos} />
         </St.TodoListFlex>
         <St.Title>
           <St.TitleSpan>👍🏻 Done </St.TitleSpan>
@@ -29,14 +27,9 @@ const TodoLists = ({ box, setBox }) => {
           </St.TitleSelect>
         </St.Title>
         <St.TodoListFlex>
-          {box.map((todo) => {
-            return (
-              todo.isDone === true && (
-                <TodoItem key={todo.id} box={box} setBox={setBox} />
-              )
-            );
-          })}
+          <TodoItem todos={doneTodos} setTodos={setTodos} />
         </St.TodoListFlex>
+        {/* <Working box={box} setBox={setBox} /> */}
       </div>
     </>
   );
