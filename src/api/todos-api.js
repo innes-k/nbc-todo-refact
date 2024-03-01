@@ -15,3 +15,7 @@ export const getTodos = async () => {
 export const addTodo = async (todo) => {
   await todoClient.post("/", todo);
 };
+
+export const deleteTodo = async (id) => {
+  await todoClient.delete(`/${id}`);
+};
