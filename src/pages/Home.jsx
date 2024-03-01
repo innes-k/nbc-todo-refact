@@ -97,7 +97,6 @@ const Home = () => {
   return (
     <div className="container">
       <Header />
-      {/* input 박스 - 컴포넌트 분리 */}
       <InputBox
         title={title}
         inputTitle={inputTitle}
