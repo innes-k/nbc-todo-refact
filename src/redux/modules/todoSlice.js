@@ -1,14 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import db from "../../../db.json";
 
-const initialState = [
-  {
-    id: Date.now(),
-    title: "Todo List 정복!",
-    body: "Todo List를 마스터해보자",
-    isDone: false,
-    deadline: "2024-01-31",
-  },
-];
+const dummyData = db.todos;
+const initialState = [...dummyData];
+
 const todoSlice = createSlice({
   name: "todos",
   initialState,

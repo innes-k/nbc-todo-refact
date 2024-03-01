@@ -1,11 +1,14 @@
 import { useState } from "react";
 import * as St from "./styles/inputBox.styles";
+// import { useDispatch } from "react-redux";
+// import { addTodos } from "../redux/modules/todoSlice";
 
 // input Box 컴포넌트 (상단의 제목, 내용, 추가하기)
 function InputBox({ setTodos }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [deadline, setDeadline] = useState("");
+  // const dispatch = useDispatch();
 
   // input '제목' 입력한 value - onchange 함수
   const inputTitle = function (e) {
@@ -27,6 +30,19 @@ function InputBox({ setTodos }) {
     setTitle("");
     setBody("");
   };
+
+  // const addHandler = () => {
+  //   const newTodo = {
+  //     id: Date.now(),
+  //     title: title,
+  //     body: body,
+  //     isDone: false,
+  //     deadline: deadline,
+  //   };
+  //   dispatch(addTodos(newTodo));
+
+  //   makeInputEmpty();
+  // };
 
   // '추가하기'버튼 onclick
   const addHandler = function () {
