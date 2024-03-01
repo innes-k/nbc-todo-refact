@@ -1,6 +1,10 @@
 import { useDispatch } from "react-redux";
 import * as St from "./styles/working.style";
-import { todoReducer, toggleTodo } from "../redux/modules/todoSlice";
+import {
+  deleteTodo,
+  todoReducer,
+  toggleTodo,
+} from "../redux/modules/todoSlice";
 
 const TodoItem = ({ todos, setTodos }) => {
   const dispatch = useDispatch();
@@ -20,12 +24,16 @@ const TodoItem = ({ todos, setTodos }) => {
   // };
 
   // 삭제버튼 onclick
-  const removeHandler = function (id) {
-    const removeBox = todos.filter((todo) => {
-      return todo.id !== id;
-    });
-    setTodos(removeBox);
+  const removeHandler = (id) => {
+    dispatch(deleteTodo(id));
   };
+
+  // const removeHandler = function (id) {
+  //   const removeBox = todos.filter((todo) => {
+  //     return todo.id !== id;
+  //   });
+  //   setTodos(removeBox);
+  // };
   return (
     <>
       {todos.map((todo) => {
