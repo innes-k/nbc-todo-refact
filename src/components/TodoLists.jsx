@@ -1,22 +1,9 @@
-// import { useDispatch, useSelector } from "react-redux";
 import * as St from "./styles/working.style";
 import TodoItem from "./TodoItem";
-// import { defaultTodos, todoReducer } from "../redux/modules/todoSlice";
 import { getTodos } from "../api/todos-api";
 import { useEffect, useState } from "react";
 
 const TodoLists = () => {
-  // const todos = useSelector((state) => state.todoReducer);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const todos = await getTodos();
-  //     dispatch(defaultTodos(todos));
-  //   };
-  //   fetchData();
-  // }, [dispatch]);
-
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {

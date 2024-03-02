@@ -1,24 +1,12 @@
-// import { useDispatch } from "react-redux";
 import * as St from "./styles/working.style";
-import // deleteTodo,
-// todoReducer,
-
-"../redux/modules/todoSlice";
 import { deleteTodo, toggleTodo } from "../api/todos-api";
 
 const TodoItem = ({ todos }) => {
-  // const dispatch = useDispatch();
-
-  // const reLocateHandler = (id) => {
-  //   dispatch(toggleTodo(id));
-  // };
-
   const reLocateHandler = async (todo) => {
     await toggleTodo(todo);
   };
 
   const removeHandler = async (id) => {
-    // dispatch(deleteTodo(id));
     await deleteTodo(id);
   };
 
