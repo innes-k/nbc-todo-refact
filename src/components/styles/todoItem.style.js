@@ -82,7 +82,6 @@ export const CompleteBtn = styled.button`
   margin-bottom: 10px;
 
   color: rgb(91, 91, 91);
-  /* background-color: rgba(235, 154, 2, 0.92); */
   background-color: ${(props) =>
     props.$isDone ? css`rgb(101, 161, 211)` : css`rgba(235, 154, 2, 0.92)`};
   border: 0px;
