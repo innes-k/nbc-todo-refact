@@ -1,18 +1,31 @@
 import * as St from "./styles/todoItem.style";
 import TodoItem from "./TodoItem";
 import { getTodos } from "../api/todos-api";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const TodoLists = () => {
-  const [todos, setTodos] = useState([]);
+  // const [todos, setTodos] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const todos = await getTodos();
-      setTodos(todos);
-    };
-    fetchData();
-  }, [todos]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const todos = await getTodos();
+  //     setTodos(todos);
+  //   };
+  //   fetchData();
+  // }, [todos]);
+
+  const {
+    data: todos,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["todos"],
+    queryFn: getTodos,
+  });
+
+  if (isLoading) return <div>로딩중...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
