@@ -2,8 +2,16 @@ import * as St from "./styles/todoItem.style";
 import TodoItem from "./TodoItem";
 import { getTodos } from "../api/todos-api";
 import { useQuery } from "@tanstack/react-query";
+// import { useState } from "react";
 
 const TodoLists = () => {
+  // const [sort, setSort] = useState("asc");
+
+  // const onChangeSort = (e) => {
+  //   const nextSort = e.target.value;
+  //   setSort(nextSort);
+  // };
+
   const {
     data: todos,
     isLoading,
