@@ -5,7 +5,7 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
-export const Title = styled.div`
+export const Title = styled.form`
   width: 400px;
   display: flex;
   flex-direction: column;
