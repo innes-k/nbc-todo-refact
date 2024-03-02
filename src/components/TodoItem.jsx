@@ -1,13 +1,23 @@
 import * as St from "./styles/todoItem.style";
 import { deleteTodo, toggleTodo } from "../api/todos-api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const TodoItem = ({ todos }) => {
+  const queryClient = useQueryClient();
+  const { mutate: deleteMutate } = useMutation({
+    mutationFn: (id) => deleteTodo(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries("todos");
+    },
+  });
+
   const reLocateHandler = async (todo) => {
     await toggleTodo(todo);
   };
 
   const removeHandler = async (id) => {
-    await deleteTodo(id);
+    // await deleteTodo(id);
+    deleteMutate(id);
   };
 
   return (

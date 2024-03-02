@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 function InputBox() {
   const queryClient = useQueryClient();
-  const { muatate } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: (newTodo) => addTodo(newTodo),
     onSuccess: () => {
       queryClient.invalidateQueries("todos");
@@ -36,7 +36,7 @@ function InputBox() {
       deadline: deadline,
     };
     // await addTodo(newTodo);
-    muatate(newTodo);
+    mutate(newTodo);
 
     e.target.reset();
   };
