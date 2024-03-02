@@ -1,14 +1,13 @@
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import * as St from "./styles/working.style";
-import {
-  // deleteTodo,
-  todoReducer,
-  toggleTodo,
-} from "../redux/modules/todoSlice";
-import { deleteTodo } from "../api/todos-api";
+import // deleteTodo,
+// todoReducer,
+
+"../redux/modules/todoSlice";
+import { deleteTodo, toggleTodo } from "../api/todos-api";
 
 const TodoItem = ({ todos }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const reLocateHandler = (id) => {
   //   dispatch(toggleTodo(id));

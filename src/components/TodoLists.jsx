@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import * as St from "./styles/working.style";
 import TodoItem from "./TodoItem";
-import { defaultTodos, todoReducer } from "../redux/modules/todoSlice";
+// import { defaultTodos, todoReducer } from "../redux/modules/todoSlice";
 import { getTodos } from "../api/todos-api";
 import { useEffect, useState } from "react";
 
