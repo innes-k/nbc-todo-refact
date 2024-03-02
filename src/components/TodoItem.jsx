@@ -9,8 +9,13 @@ import { deleteTodo } from "../api/todos-api";
 
 const TodoItem = ({ todos }) => {
   const dispatch = useDispatch();
-  const reLocateHandler = (id) => {
-    dispatch(toggleTodo(id));
+
+  // const reLocateHandler = (id) => {
+  //   dispatch(toggleTodo(id));
+  // };
+
+  const reLocateHandler = async (todo) => {
+    await toggleTodo(todo);
   };
 
   const removeHandler = async (id) => {
@@ -40,7 +45,7 @@ const TodoItem = ({ todos }) => {
                 삭제하기
               </St.RemoveBtn>
               <St.CompleteBtn
-                onClick={() => reLocateHandler(todo.id)}
+                onClick={() => reLocateHandler(todo)}
                 $isDone={todo.isDone}
               >
                 {todo.isDone ? "취소하기" : "완료하기"}

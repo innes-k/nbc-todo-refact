@@ -19,3 +19,7 @@ export const addTodo = async (todo) => {
 export const deleteTodo = async (id) => {
   await todoClient.delete(`/${id}`);
 };
+
+export const toggleTodo = async (todo) => {
+  await todoClient.patch(`${todo.id}`, { ...todo, isDone: !todo.isDone });
+};
