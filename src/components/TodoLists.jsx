@@ -3,7 +3,6 @@ import TodoItem from "./TodoItem";
 import { getTodos } from "../api/todos-api";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-// import { useState } from "react";
 
 const TodoLists = () => {
   const [sort, setSort] = useState("asc");

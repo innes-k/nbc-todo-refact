@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Title = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ export const TodoListFlex = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const TodoList = styled.article`
+export const TodoList = styled.div`
   border: 2px solid rgb(135, 206, 235);
   background-color: white;
   border-radius: 30px;
@@ -32,7 +32,8 @@ export const TodoList = styled.article`
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  /* gap: 20px; */
 
   &:hover {
     box-shadow: 0px 0px 10px 0px rgb(32, 172, 227);
@@ -73,6 +74,7 @@ export const RemoveBtn = styled.button`
   background-color: rgb(255, 236, 130);
   border: 0px;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const CompleteBtn = styled.button`
@@ -80,8 +82,11 @@ export const CompleteBtn = styled.button`
   margin-bottom: 10px;
 
   color: rgb(91, 91, 91);
-  background-color: rgba(235, 154, 2, 0.92);
+  /* background-color: rgba(235, 154, 2, 0.92); */
+  background-color: ${(props) =>
+    props.$isDone ? css`rgb(101, 161, 211)` : css`rgba(235, 154, 2, 0.92)`};
   border: 0px;
   border-radius: 10px;
   color: white;
+  cursor: pointer;
 `;
