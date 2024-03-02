@@ -1,7 +1,16 @@
 import * as St from "./styles/inputBox.styles";
 import { addTodo } from "../api/todos-api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 function InputBox() {
+  const queryClient = useQueryClient();
+  const { muatate } = useMutation({
+    mutationFn: (newTodo) => addTodo(newTodo),
+    onSuccess: () => {
+      queryClient.invalidateQueries("todos");
+    },
+  });
+
   const onAddHandler = async (e) => {
     e.preventDefault();
 
@@ -26,7 +35,8 @@ function InputBox() {
       isDone: false,
       deadline: deadline,
     };
-    await addTodo(newTodo);
+    // await addTodo(newTodo);
+    muatate(newTodo);
 
     e.target.reset();
   };
