@@ -2,7 +2,7 @@ import * as St from "./styles/inputBox.styles";
 import { addTodo } from "../api/todos-api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-function InputBox() {
+const InputBox = () => {
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: (newTodo) => addTodo(newTodo),
@@ -35,7 +35,6 @@ function InputBox() {
       isDone: false,
       deadline: deadline,
     };
-    // await addTodo(newTodo);
     mutate(newTodo);
 
     e.target.reset();
@@ -64,6 +63,6 @@ function InputBox() {
       </St.Title>
     </St.Container>
   );
-}
+};
 
 export default InputBox;

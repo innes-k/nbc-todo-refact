@@ -20,12 +20,10 @@ const TodoItem = ({ todos }) => {
   });
 
   const reLocateHandler = async (todo) => {
-    // await toggleTodo(todo);
     toggleMutate(todo);
   };
 
   const removeHandler = async (id) => {
-    // await deleteTodo(id);
     deleteMutate(id);
   };
 

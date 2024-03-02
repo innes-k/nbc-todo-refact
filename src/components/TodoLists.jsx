@@ -1,20 +1,9 @@
 import * as St from "./styles/todoItem.style";
 import TodoItem from "./TodoItem";
 import { getTodos } from "../api/todos-api";
-// import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 const TodoLists = () => {
-  // const [todos, setTodos] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const todos = await getTodos();
-  //     setTodos(todos);
-  //   };
-  //   fetchData();
-  // }, [todos]);
-
   const {
     data: todos,
     isLoading,
