@@ -1,4 +1,4 @@
-import * as St from "./styles/working.style";
+import * as St from "./styles/todoItem.style";
 import { deleteTodo, toggleTodo } from "../api/todos-api";
 
 const TodoItem = ({ todos }) => {

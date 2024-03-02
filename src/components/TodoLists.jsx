@@ -1,4 +1,4 @@
-import * as St from "./styles/working.style";
+import * as St from "./styles/todoItem.style";
 import TodoItem from "./TodoItem";
 import { getTodos } from "../api/todos-api";
 import { useEffect, useState } from "react";
