@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const TodoItem = ({ todos }) => {
   const queryClient = useQueryClient();
+
   const { mutate: deleteMutate } = useMutation({
     mutationFn: (id) => deleteTodo(id),
     onSuccess: () => {
@@ -11,8 +12,16 @@ const TodoItem = ({ todos }) => {
     },
   });
 
+  const { mutate: toggleMutate } = useMutation({
+    mutationFn: (todo) => toggleTodo(todo),
+    onSuccess: () => {
+      queryClient.invalidateQueries("todos");
+    },
+  });
+
   const reLocateHandler = async (todo) => {
-    await toggleTodo(todo);
+    // await toggleTodo(todo);
+    toggleMutate(todo);
   };
 
   const removeHandler = async (id) => {
